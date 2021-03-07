@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% include "Include/header.html" %}
+{% load static %}
+<html lang="en">
+<style>
+    .head1{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin: 2%;
+        padding: 2% 0% 0% 0%;
+    }
+    .card{
+        margin-top: 15%;
+    }
+    img {
+        border-radius: 50%;
+        width: 40%;
+      }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile || Update</title>
+</head>
+<body class="text-white">
+    <div class="container ">
+        <div class="card bg1-dark">
+            <div class="card-title ">
+                <div class="head1 "><h3>{{user.fname}}'s Profile</h3>
+                <a class="" href="/profile/changepassword/{{user.Pid}}_{{user.fname}}{{user.lname}}/"> Change Password</a>
+
+                    <div class="  d-flex justify-content-center">
+                        <img src="{% static 'images/profile.jpg' %}" alt="Profile">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <form
+                    action="/profile/{{user.Pid}}_{{user.fname}}{{user.lname}}"
+                    method="POST"
+                    class="needs-validation"
+                    novalidate
+                  >
+                    {% csrf_token %}
+                    <!-- First Name -->
+                    <div class="row">
+                        <div class="col-md">
+                            <input
+                            type="text"
+                            class="form-control"
+                            placeholder="First name"
+                            name="fname"
+                            value="{{user.fname}}"
+                            required
+                            >
+                        </div>
+                        <br>
+                        <br>
+                        <!-- Last name -->
+                        <div class="col-md">
+                            <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Last name"
+                            name="lname"
+                            value="{{user.lname}}"
+                            required
+                            >
+
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Email -->
+                    <div class="row">
+                      <div class="col-md" style="padding-top: 1%">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="inputEmail4"
+                          placeholder="Email (All lower case)"
+                          name="email"
+                          value="{{user.email}}"
+                          required
+                        />
+                      </div>
+
+                      <br>
+                      <!-- mobile -->
+
+                      <div class="col-md" style="padding-top: 1%">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Mobile No."
+                          pattern="0-9"
+                          name="mobile"
+                          value="{{user.mobile}}"
+                          required
+                        />
+                      </div>
+
+                    </div>
+                    <br>
+                      <!-- Age -->
+                    <div class="row">
+                      <div class="col-md" style="padding-top: 1%">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Age"
+                          pattern="0-9"
+                          name="age"
+                          value="{{user.age}}"
+                          required
+                        />
+                      </div>
+
+                    <br>
+                    <!-- Gender -->
+
+                      <div class="form-group col-md" style="padding-top: 1%">
+                        <select
+                          id="Gender"
+                          class="form-control"
+                          placeholder="Gender"
+                          name="Gender"
+
+                          required
+                        >
+                          <option value="{{user.gender}}" selected>Gender</option>
+                          <option value="M">Male</option>
+                          <option value="F">Female</option>
+                        </select>
+                      </div>
+
+                    </div>
+
+                    <div class="col-md" style="padding-top: 1%">
+                        <label for="bio">Update Bio</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Bio"
+
+                          name="bio"
+                          value="{{user.bio}}"
+                          required
+                        />
+
+                      </div>
+                      <br>
+                    <!-- submit -->
+                    <div class="container text-center">
+                    <input
+                      type="submit"
+                      class="btn btn-primary"
+
+                    />
+                  </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

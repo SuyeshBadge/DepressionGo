@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<header>
+  <!-- Latest compiled and minified CSS -->
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+    .bs-example {
+      margin: 10px;
+    }
+
+    .bg1-dark {
+      background-color: black;
+    }
+
+    body {
+      background: url(https://images.hdqwalls.com/download/dark-abstract-black-minimal-4k-q0-1920x1080.jpg);
+      
+    }
+  </style>
+
+
+  <!-- Header Start -->
+  <div class="bs-example">
+    <nav
+      class="navbar navbar-expand-md navbar-dark bg1-dark"
+      style="border-radius: 9px"
+    >
+    {% if login %}
+    <a href="/home/{{user.Pid}}_{{user.fname}}{{user.lname}}/{{user.state}}"  class="navbar-brand" style="font-family: cursive">
+      <h3>𝒟𝑒𝓅𝓇𝑒𝓈𝓈𝒾𝑜𝓃𝒢𝑜</h3>
+    </a>
+    {% endif %}
+    {% if not login %}
+    <a href="/index/"  class="navbar-brand" style="font-family: cursive">
+      <h3>𝒟𝑒𝓅𝓇𝑒𝓈𝓈𝒾𝑜𝓃𝒢𝑜</h3>
+    </a>
+    {% endif %}
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        {% if login %}
+        <div class="navbar-nav ml-auto">
+          <a href="/home/{{user.Pid}}_{{user.fname}}{{user.lname}}/{{user.state}}" class="nav-item nav-link ">Home</a>
+
+        </div>
+        <div class="navbar-nav">
+          <a href="/profile/{{user.Pid}}_{{user.fname}}{{user.lname}}" class="nav-item nav-link">{{user.fname}}'s Profile</a>
+          <a href="/index/" class="nav-item nav-link">Logout</a>
+        </div>
+            
+          {% endif %}
+          {% if not login %}
+          <div class="navbar-nav ml-auto">
+            <a href="/index/" class="nav-item nav-link ">Home</a>
+            <a href="/about/" class="nav-item nav-link">About</a>
+          </div>
+          <div class="navbar-nav">
+            <a href="/login/" class="nav-item nav-link">Login</a>
+          </div>
+          {% endif %}
+
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- Header end -->
+<!-- Error Start -->
+  {% if error %}
+
+  <div
+    class=" alert m-auto animate__animated animate__wobble alert-primary alert-warning alert-dismissible text-center fade show"
+    role="alert"
+    style="width: max-content"
+  >
+    <button
+      class="panel-close active close .text-decoration-none"
+      data-dismiss="alert"
+    >
+      x
+    </button>
+    <strong class="text-center">{{ error }}</strong>
+  </div>
+  {% endif %}
+
+</header>

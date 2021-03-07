@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %} {% include "Include/header.html" %}
+<style>
+.card{
+  padding: auto;
+  margin: 1% 5% 1% 5% !important;
+  width: 25rem !important;
+}
+.row{
+  margin: auto;
+}
+
+
+
+</style>
+
+
+<html>
+  <head>
+    <title>Depression Go</title>
+  </head>
+
+    
+
+  <body class="text-white">
+    <div class="d-flex justify-content-center">How You Feelin' Now?</div><br>
+    <div class="d-flex  justify-content-center">
+      <div class="row">
+        <form action="Happy" method="GET">
+          {% csrf_token %}
+
+          <input type="submit" class="btn btn-success" style="margin-right:5em" value="Happy">
+        </form>
+          <form action="Sad" method="GET">
+              {% csrf_token %}
+            <input type="submit" class="btn btn-danger" style="margin-left:0" value=" Sad ">
+
+        </form>
+      </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center ">
+      Here Are Some Peoples You can talk with.
+    </div>
+    {% for userp in ppl %}
+
+    <div class="d-flex justify-content-center row">
+      <div class="card bg1-dark row-col-md" >
+        <img class="card-img-top" src="{% static 'images/profile.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{userp.fname}} {{userp.lname}} </h5>
+          <p class="card-text">{{userp.age}} {{userp.gender}}<br> {{userp.bio}} <br> Currently Feeling {{userp.state}}</p>
+        </div>
+
+        <div class="card-body">
+          <a href="tel:+91{{userp.mobile}}" class="card-link">Call</a>
+          <a href="mailto:{{userp.email}}" class="card-link"> Email</a>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </body>
+
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% include "Include/header.html" %}
+<style>
+  .container-fluid{
+    padding: 5% 15% 5% 15%;
+    align-content: auto;
+  }
+  .card{
+    padding: 3% 8% 3% 8%;
+  }
+  .text-gray{
+    color: #7b8087;
+  }
+
+
+</style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="card bg1-dark">
+      <div class="card-title text-white  text-center">
+        <h2>Login</h2>
+      </div>
+      <!-- form start -->
+      <form action="/login/" method="POST">
+        {% csrf_token %}
+        <div class="card-body">
+          <!-- email -->
+          <div class="col-md">
+            <input
+              type="Email"
+              class="form-control"
+              placeholder="Email"
+              name="email"
+              required
+            />
+
+          </div>
+          <br>
+          <!-- password -->
+          <div class="col-md">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="pass"
+              required
+            />
+
+          </div>
+          <br>
+          <!-- submit -->
+          <div class="container text-center">
+            <input type="submit" class=" btn btn-primary ">
+          </div>
+          <br>
+          <div class=" text-center" >
+            <div class="  text-gray">
+              <h4>New User?</h4>
+            </div>
+            <div>
+              <a href="/register/"><h4>Register!</h4></a>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+</body>
+</html>
+

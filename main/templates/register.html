@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% include "Include/header.html" %}
+<html>
+<style>
+  .container-fluid{
+    padding:5% 15% 5% 15%;
+  }
+  .card{
+    padding: 3%;
+  }
+  .col-md{
+
+    margin: 0px 15px 0px 15px;
+  }
+
+
+</style>
+
+<head>
+    <title>
+      Register
+    </title>
+
+
+</head>
+<!-- body -->
+<body>
+<div class="container-fluid">
+  <div class="card bg1-dark ">
+    <div class="card-title text-white text-center">
+       <h3>Registration</h3>
+    </div>
+      <br>
+
+      <form
+        action="/register/"
+        method="POST"
+        class="needs-validation"
+        novalidate
+      >
+        {% csrf_token %}
+        <!-- First Name -->
+        <div class="row">
+          <div class="col-md">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              name="fname"
+              required
+            />
+
+          </div>
+          <br>
+            <!-- Last name -->
+          <div class="col-md">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              name="lname"
+              required
+            />
+            <div class="valid-tooltip">Looks good!</div>
+          </div>
+        </div>
+        <br>
+        <!-- Email -->
+        <div class="row">
+          <div class="col-md" style="padding-top: 1%">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="Email (All lower case)"
+              name="email"
+              required
+            />
+          </div>
+
+          <br>
+          <!-- mobile -->
+
+          <div class="col-md" style="padding-top: 1%">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Mobile No."
+              pattern="0-9"
+              name="mobile"
+              required
+            />
+          </div>
+
+        </div>
+        <br>
+          <!-- Age -->
+        <div class="row">
+          <div class="col-md" style="padding-top: 1%">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Age"
+              pattern="0-9"
+              name="age"
+              required
+            />
+          </div>
+
+        <br>
+        <!-- Gender -->
+
+          <div class="form-group col-md" style="padding-top: 1%">
+            <select
+              id="Gender"
+              class="form-control"
+              placeholder="Gender"
+              name="Gender"
+              required
+            >
+              <option value="None" selected>Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+
+        </div>
+
+        <br>
+        <!-- pass1  -->
+        <div class="row">
+          <div class="col-md" style="padding-top: 1%">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              name="pass1"
+              required
+            />
+          </div>
+          <br>
+          <!-- pass2 -->
+          <div class="col-md" style="padding-top: 1%">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              name="pass2"
+              required
+            />
+          </div>
+        </div>
+        <br>
+        <!-- submit -->
+        <div class="container text-center">
+        <input
+          type="submit"
+          class="btn btn-primary"
+
+        />
+      </div>
+      </form>
+  </div>
+</div>
+</body>
+</html>

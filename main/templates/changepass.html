@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% include "Include/header.html" %}
+<html lang="en">
+    <style>
+        .card{
+            margin-top: 15%;
+        }
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile || Change Password</title>
+</head>
+<body class="text-white">
+    <div class=" container  justify-content-center">
+        <div class="card bg1-dark">
+            <div class="card-title text-center" style="padding: 2%; margin:1%;">
+                <h2> Change Password</h2>
+            </div>
+
+            <div class="card-body">
+                <div>
+                    <form action="/profile/changepassword/{{user.Pid}}_{{user.fname}}{{user.lname}}/" method="POST">
+                        {% csrf_token %}
+                        <div class=" d-flex justify-content-center">
+                        <input type="password" class="col-md-7" placeholder="Old Password"
+                                name="opass" required>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                        <input type="password" class="col-md-7" placeholder="New Password"
+                                name="npass1" required>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                        <input type="password" class="col-md-7" placeholder="Confirm New Password"
+                                name="npass2" required>
+                        </div>
+                        <br>
+                         <!-- submit -->
+                        <div class="container text-center">
+                        <input
+                          type="submit"
+                          class="btn btn-primary"
+    
+                        />
+                      </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
