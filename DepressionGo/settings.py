@@ -27,7 +27,7 @@ SECRET_KEY = '!a-a9304&9#@18@^@0t*w2__pri*l=gm+3t_267wocp-&yi*bk'
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.0.106', 'localhost',
-                 'depressiongo.herokuapp.com']
+                 'depressiongo.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
