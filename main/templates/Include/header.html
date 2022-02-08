@@ -43,7 +43,7 @@
   <div class="bs-example">
     <nav
       class="navbar navbar-expand-md navbar-dark bg1-dark"
-      style="border-radius: 9px; position: fixed;width: 100%; margin-top: 100px;"
+      style="border-radius: 9px; position: fixed;width: 100%; "
     >
     {% if login %}
     <a href="/home/{{user.Pid}}_{{user.fname}}{{user.lname}}/{{user.state}}"  class="navbar-brand" style="font-family: cursive">
@@ -64,7 +64,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-top: 100px;">
         {% if login %}
         <div class="navbar-nav ml-auto">
           <a href="/home/{{user.Pid}}_{{user.fname}}{{user.lname}}/{{user.state}}" class="nav-item nav-link ">Home</a>
