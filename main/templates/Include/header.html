@@ -33,6 +33,7 @@
 
     body {
       background: url(https://images.hdqwalls.com/download/dark-abstract-black-minimal-4k-q0-1920x1080.jpg);
+      background-attachment: fixed;
       
     }
   </style>
@@ -42,7 +43,7 @@
   <div class="bs-example">
     <nav
       class="navbar navbar-expand-md navbar-dark bg1-dark"
-      style="border-radius: 9px"
+      style="border-radius: 9px; position: fixed;"
     >
     {% if login %}
     <a href="/home/{{user.Pid}}_{{user.fname}}{{user.lname}}/{{user.state}}"  class="navbar-brand" style="font-family: cursive">
